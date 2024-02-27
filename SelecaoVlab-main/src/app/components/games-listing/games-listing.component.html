@@ -1,8 +1,8 @@
 <div class="background-canva">
     <div class="movie-list">
         <ul>
-            <li *ngFor="let movies as movie">
-                <movie-card-app [movie]="movie"></movie-card-app>
+            <li *ngFor="let game of games">
+                <game-card-app [game]="game"></game-card-app>
             </li>
         </ul>
     </div>
