@@ -9,9 +9,11 @@ export class GamesService {
 
   baseUrl = "http://localhost:4123/https://www.freetogame.com/api/";
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+  }
 
   getAllGames() {
-    return this.http.get<Game>(this.baseUrl + "games");
+    return this.http.get<Game[]>(this.baseUrl + "games");
   }
 }

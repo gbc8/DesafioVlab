@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Game } from 'app/models/Game';
 
 @Component({
   selector: 'game-card-app',
@@ -8,6 +9,6 @@ import { Component, Input } from '@angular/core';
 export class GameCardComponent {
 
   @Input()
-  game = {};
+  game!: Game;
 
 }

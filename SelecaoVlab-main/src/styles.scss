@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --vlab-text-color: white;
+    --vlab-background-color: #FBFEF4;
+    --vlab-secondary-color: #FFF;
+    --vlab-primary-color: #14e609;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--vlab-background-color);
+}

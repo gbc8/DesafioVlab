@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-
-import { AppRoutes } from './app-routing.module';
+import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
+import { GameCardComponent } from './components/game-card/game-card.component';
+import { GamesListingComponent } from './components/games-listing/games-listing.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    GamesListingComponent,
+    GameCardComponent,
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(AppRoutes)
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

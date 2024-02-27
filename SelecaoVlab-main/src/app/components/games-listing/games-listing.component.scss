@@ -1,0 +1,13 @@
+.game-list ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px;
+    
+    width: 80vw;
+
+    li {
+        list-style: none;
+    }
+}
