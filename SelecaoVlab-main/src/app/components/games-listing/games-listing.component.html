@@ -2,7 +2,7 @@
     <div class="game-list">
         <ul>
             <li *ngFor="let game of games">
-                <game-card-app [game]="game"></game-card-app>
+                <game-card-app [game]="game" (click)="onClick(game.id)"></game-card-app>
             </li>
         </ul>
     </div>

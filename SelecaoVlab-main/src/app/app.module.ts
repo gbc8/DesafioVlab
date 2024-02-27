@@ -6,6 +6,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
 import { GamesListingComponent } from './components/games-listing/games-listing.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { GameDetailComponent } from './components/game-detail/game-detail.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -13,14 +17,20 @@ import { GamesListingComponent } from './components/games-listing/games-listing.
     AppComponent,
     HeaderComponent,
     GamesListingComponent,
-    GameCardComponent,
+    GameCardComponent,GameDetailComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatDialogModule,
+    MatButtonModule,MatDialogModule, MatButtonModule
     ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync('noop'),
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

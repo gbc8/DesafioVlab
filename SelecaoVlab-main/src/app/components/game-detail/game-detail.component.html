@@ -1,0 +1,60 @@
+<h2 mat-dialog-title>{{game.title}}</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+    
+    <img [src]="game.thumbnail" class="aligncenter">
+    
+    <div class="description">
+        <h2><b>Descrição</b></h2>
+        <p>{{game.description}}</p>
+    </div>
+
+    <div class="page">
+        <h2><b>Página do Jogo</b></h2>
+        <p>{{game.game_url}}</p>
+    </div>
+    
+    <div class="release-date">
+        <h2><b>Data de Lançamento</b></h2>
+        <p>{{game.release_date}}</p>
+    </div>
+
+    <div class="platform">
+        <h2><b>Plataforma</b></h2>
+        <p>{{game.platform}}</p>
+    </div>
+
+    <div class="publisher">
+        <h2><b>Publicadora</b></h2>
+        <p>{{game.publisher}}</p>
+    </div>
+
+    <div class="developer">
+        <h2><b>Desenvolvedora</b></h2>
+        <p>{{game.developer}}</p>
+    </div>
+
+    <div class="system">
+        <h2><b>Requisitos do Sistema</b></h2>
+        <p>Sistema Operacional: {{game.minimum_system_requirements.os}}</p>
+        <p>Processador: {{game.minimum_system_requirements.processor}}</p>
+        <p>Memória: {{game.minimum_system_requirements.memory}}</p>
+        <p>Gráficos: {{game.minimum_system_requirements.graphics}}</p>
+        <p>Armazenamento: {{game.minimum_system_requirements.storage}}</p>
+    </div>
+
+    <div class="screenshots">
+        <h2><b>Screenshots</b></h2>
+        <ul>
+            <li *ngFor="let shot of game.screenshots">
+                <img [src]="shot.image"/>
+            </li>
+
+        </ul>
+    </div>
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Fechar</button>
+</mat-dialog-actions>

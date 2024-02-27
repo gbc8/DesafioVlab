@@ -1,4 +1,4 @@
 <div class="app-container">
     <app-header></app-header>
-    <app-games-listing [games]="gameList" class="game-list"></app-games-listing>
+    <app-games-listing [games]="gameList" class="game-list" (cardClicked)="onCardClicked($event)"></app-games-listing>
 </div>

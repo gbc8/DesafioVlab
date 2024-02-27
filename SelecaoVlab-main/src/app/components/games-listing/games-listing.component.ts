@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Game } from 'app/models/Game';
 
 @Component({
@@ -14,5 +14,12 @@ export class GamesListingComponent implements OnInit {
   }
   
   ngOnInit(){
+  }
+
+  @Output()
+  cardClicked = new EventEmitter<number>();
+
+  onClick(id: number){
+    this.cardClicked.emit(id);
   }
 }
