@@ -1,4 +1,9 @@
-<h2 mat-dialog-title>{{game.title}}</h2>
+<div class="title">
+    <h2 mat-dialog-title>{{game.title}}</h2>
+    <div class="favorite-icon">
+        <mat-icon (click)="onFavoriteClick(game)">{{game.favorite}}</mat-icon>
+    </div>
+</div>
 <mat-dialog-content class="mat-typography">
   <div class="container">
     

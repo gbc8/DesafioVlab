@@ -22,5 +22,6 @@ export interface GameDetails {
     screenshots: {
         id: number,
         image: string
-    }[]
+    }[],
+    favorite: string
 }

@@ -10,14 +10,17 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { GameDetailComponent } from './components/game-detail/game-detail.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatIconModule} from '@angular/material/icon';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     GamesListingComponent,
-    GameCardComponent,GameDetailComponent
+    GameCardComponent,
+    GameDetailComponent, 
+    FilterComponent
 
   ],
   imports: [
@@ -25,7 +28,10 @@ import {MatButtonModule} from '@angular/material/button';
     AppRoutingModule,
     HttpClientModule,
     MatDialogModule,
-    MatButtonModule,MatDialogModule, MatButtonModule
+    MatButtonModule,
+    MatDialogModule, 
+    MatButtonModule,
+    MatIconModule
     ],
   providers: [
     provideAnimationsAsync('noop'),

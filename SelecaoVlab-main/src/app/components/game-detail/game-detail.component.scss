@@ -22,3 +22,17 @@
         }
     }
 }
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    h2 {
+        padding-right: 10px;
+    }
+    
+    .favorite-icon{
+        padding-top: 10px;
+    }
+}

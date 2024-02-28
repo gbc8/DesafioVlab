@@ -1,4 +1,4 @@
-.header-container {
+.project-name {
     background-color: var(--vlab-primary-color);
     color: var(--vlab-text-color);
     width: 100%;
@@ -7,4 +7,19 @@
     align-items: center;
     font-size: 1.8rem;
     height: 100px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: #414542;
+    align-items: center;
+    height: 40px;
+
+    p {
+        font-size: 1.2rem;
+        color: white;
+        margin: 0 30px;
+        cursor: pointer;
+    }
 }

@@ -1,8 +1,7 @@
 import { Component, Inject } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { GameDetails } from 'app/models/GameDetails';
+import { GamesService } from 'app/services/games/games.service';
 
 @Component({
   selector: 'app-game-detail',
@@ -13,7 +12,20 @@ export class GameDetailComponent {
 
   game!: GameDetails;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: GameDetails){
+  constructor(@Inject(MAT_DIALOG_DATA) public data: GameDetails, private gameService: GamesService){
     this.game = data;
+  }
+
+  onFavoriteClick(game: GameDetails){
+    this.switchFavoriteStatus(game);
+    this.gameService.favoriteEvent(game.id);
+  }
+
+  switchFavoriteStatus(game: GameDetails){
+    if(game.favorite == 'favorite_border'){
+      game.favorite = 'favorite';
+    }else{
+      game.favorite = 'favorite_border';
+    }
   }
 }
