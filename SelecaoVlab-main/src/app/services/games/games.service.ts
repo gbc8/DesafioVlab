@@ -1,32 +1,54 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Game } from 'app/models/Game';
 import { GameDetails } from 'app/models/GameDetails';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GamesService {
+export class GamesService implements OnDestroy {
 
   readonly baseUrl = "http://localhost:4123/https://www.freetogame.com/api/";
   private allGamesSubject: BehaviorSubject<Game[]> = new BehaviorSubject<Game[]>([]);
   private allGames$: Observable<Game[]> = this.allGamesSubject.asObservable();
   private filteredGames: Game[] = [];
+  subs: Subscription[] = [];
   
   constructor(private http: HttpClient) {
-    this.http.get<Game[]>(this.baseUrl + "games").subscribe(data => {
+    const subs = this.http.get<Game[]>(this.baseUrl + "games").subscribe(data => {
+      data.map(game => {
+        if(this.isFavorite(game.id)){
+          game.favorite = "favorite";
+        }else{
+          game.favorite = "favorite_border";
+        }
+      });
       this.allGamesSubject.next(data);
       this.filteredGames = data;
     });
+
+    subs.add(subs);
+  }
+
+  ngOnDestroy(): void {
+      this.subs.forEach(sub => sub.unsubscribe());
+  }
+
+  getGameDetail(id: number){
+    return this.http.get<GameDetails>(this.baseUrl + "game?id="+id);
   }
 
   getAllGames() {
     return this.allGames$;
   }
 
-  getGameDetail(id: number){
-    return this.http.get<GameDetails>(this.baseUrl + "game?id="+id);
+  getFilteredGames(){
+    return this.filteredGames;
+  }
+
+  getFavoriteGames(): Game[] {
+    return this.filteredGames.filter(game => this.isFavorite(game.id));
   }
 
   insertFavorite(id: number){
