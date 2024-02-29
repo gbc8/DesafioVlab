@@ -39,12 +39,20 @@ export class GamesService implements OnDestroy {
     return this.http.get<GameDetails>(this.baseUrl + "game?id="+id);
   }
 
+  getSortedFilter(type: string){
+    return this.http.get<Game[]>(this.baseUrl + "games?sort-by=" + type);
+  }
+
   getAllGames() {
     return this.allGames$;
   }
 
   getFilteredGames(){
     return this.filteredGames;
+  }
+
+  setFilteredGames(games: Game[]){
+    this.filteredGames = games;
   }
 
   getFavoriteGames(): Game[] {

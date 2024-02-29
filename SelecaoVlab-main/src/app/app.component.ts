@@ -13,7 +13,6 @@ import { Subscription } from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy{
 
   gameList: Game[] = [];
-
   subs: Subscription[] = [];
 
   constructor(private gameService: GamesService, public dialog: MatDialog){}
@@ -28,6 +27,10 @@ export class AppComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.subs.forEach(sub => sub.unsubscribe());
+  }
+
+  filterEvent() {
+    this.gameList = this.gameService.getFilteredGames();
   }
 
   tabClick(tab: string) {

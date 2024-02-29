@@ -1,4 +1,5 @@
 <div class="app-container">
     <app-header (tabClick)="tabClick($event)"></app-header>
+    <app-filter (filterSubmited)="filterEvent()"></app-filter>
     <app-games-listing [games]="gameList" class="game-list" (cardClicked)="onCardClicked($event)"></app-games-listing>    
 </div>

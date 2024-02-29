@@ -12,6 +12,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { FilterComponent } from './components/filter/filter.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FilterComponent } from './components/filter/filter.component';
     MatButtonModule,
     MatDialogModule, 
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
     ],
   providers: [
     provideAnimationsAsync('noop'),

@@ -1,0 +1,32 @@
+<form class="container form-group" [formGroup]="formGroup">
+    <div class="filter">
+        <div class="order">
+            <h3><b>Ordem</b></h3>
+            <div class="radio-container">
+                <div class="radio-wrapper">
+                    <input type="radio" name="order" value="release-date" formControlName="order"/>
+                    <label for="release-date">Data de lançamento</label>
+                </div>
+            
+                <div class="radio-wrapper">
+                    <input type="radio" name="order" value="popularity" formControlName="order"/>
+                    <label for="popularity">Popularidade</label>
+                </div>
+            
+                <div class="radio-wrapper">
+                    <input type="radio" name="order" value="alphabetical" formControlName="order"/>
+                    <label for="alphabetical">Ordem alfabética</label>
+                </div>
+        
+                <div class="radio-wrapper">
+                    <input type="radio" name="order" value="relevance" formControlName="order"/>
+                    <label for="relevance">Relevância</label>
+                </div>
+            </div>
+        </div>
+        <div class="btn-wrapper">
+            <button class="btn btn-primary" (click)="onSubmit()">Filtrar</button>
+            <button class="btn btn-secondary" (click)="onClean()">Limpar</button>
+        </div>
+    </div>
+</form>
