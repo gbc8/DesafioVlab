@@ -3,7 +3,7 @@ import { GamesService } from './services/games/games.service';
 import { Game } from './models/Game';
 import { MatDialog } from '@angular/material/dialog';
 import { GameDetailComponent } from './components/game-detail/game-detail.component';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,8 @@ export class AppComponent implements OnInit, OnDestroy{
 
   gameList: Game[] = [];
   subs: Subscription[] = [];
+
+  filterType = new BehaviorSubject<string>('filters');
 
   constructor(private gameService: GamesService, public dialog: MatDialog){}
 
@@ -36,8 +38,10 @@ export class AppComponent implements OnInit, OnDestroy{
   tabClick(tab: string) {
     if(tab == 'favorite'){
       this.gameList = this.gameService.getFavoriteGames();
-    }else{
+    }else if(tab == 'all'){
       this.gameList = this.gameService.getFilteredGames();
+    }else {
+      this.filterType.next(tab);
     }
   }
 

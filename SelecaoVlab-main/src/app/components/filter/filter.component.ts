@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Game } from 'app/models/Game';
 import { GamesService } from 'app/services/games/games.service';
 import { Subscription } from 'rxjs';
 
@@ -19,7 +20,10 @@ export class FilterComponent implements OnDestroy{
 
   constructor(private formBuilder: FormBuilder, private gameService: GamesService){
     this.formGroup = this.formBuilder.group({
-      order: '',
+      platform: '',
+      date: '',
+      category: '',
+      developer: ''
     });
   }
 
@@ -32,7 +36,15 @@ export class FilterComponent implements OnDestroy{
   }
 
   onSubmit() {
-    const sub = this.gameService.getSortedFilter(this.formGroup.value.order).subscribe(data => {
+    const sub = this.gameService.getAllGames().subscribe(data => {
+
+      const {platform, date, category, developer} = this.formGroup.value;
+
+      data = data.filter(game => {
+        return this.filterFunction(game, platform, date, category, developer);
+      });
+
+
       data.map(game => {
         if(this.gameService.isFavorite(game.id)){
           game.favorite = "favorite";
@@ -40,10 +52,29 @@ export class FilterComponent implements OnDestroy{
           game.favorite = "favorite_border";
         }
       });
+
       this.gameService.setFilteredGames(data);
       this.filterSubmited.emit();
     });
-
     this.subs.push(sub);
+  }
+
+  filterFunction(game: Game, platform: string | null, date: string | null, category: string | null, developer: string | null){
+    let result: boolean = true;
+        
+        if(platform != null && platform != '' && platform != game.platform){
+          result = false;
+        }
+        if(date != null && date != '' && date != game.release_date){
+          result = false;
+        }
+        if(category != null && category != '' && category != game.genre){
+          result = false;
+        }
+        if(developer != null && developer != '' && developer != game.developer){
+          result = false;
+        }
+
+        return result;
   }
 }

@@ -2,7 +2,8 @@
     <app-header (tabClick)="tabClick($event)"></app-header>
     
     <div class="content">
-        <app-filter (filterSubmited)="filterEvent()"></app-filter>
+        <app-sort *ngIf="(filterType | async) == 'sort'" (filterSubmited)="filterEvent()"></app-sort>
+        <app-filter *ngIf="(filterType | async) == 'filters'" (filterSubmited)="filterEvent()"></app-filter>
         <app-games-listing [games]="gameList" class="game-list" (cardClicked)="onCardClicked($event)"></app-games-listing>    
     </div>
 </div>

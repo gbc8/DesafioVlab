@@ -11,8 +11,9 @@ import { GameDetailComponent } from './components/game-detail/game-detail.compon
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import { FilterComponent } from './components/filter/filter.component';
+import { SortComponent } from './components/sort/sort.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     GamesListingComponent,
     GameCardComponent,
     GameDetailComponent, 
-    FilterComponent
+    SortComponent, FilterComponent
 
   ],
   imports: [

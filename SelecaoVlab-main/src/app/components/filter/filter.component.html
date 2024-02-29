@@ -1,32 +1,32 @@
 <form class="container form-group" [formGroup]="formGroup">
     <div class="filter">
-        <div class="order">
-            <h3><b>Ordem</b></h3>
-            <div class="radio-container">
-                <div class="radio-wrapper">
-                    <input type="radio" name="order" value="release-date" formControlName="order"/>
+        <div class="fields">
+            <h3><b>Filtros</b></h3>
+            <div class="text-fields">
+                <div class="text-input-wrapper">
+                    <label for="platform">Plataforma</label>
+                    <input type="text" name="platform" formControlName="platform"/>
+                </div>
+
+                <div class="text-input-wrapper">
                     <label for="release-date">Data de lançamento</label>
+                    <input type="text" name="release-date" formControlName="date"/>
                 </div>
-            
-                <div class="radio-wrapper">
-                    <input type="radio" name="order" value="popularity" formControlName="order"/>
-                    <label for="popularity">Popularidade</label>
+
+                <div class="text-input-wrapper">
+                    <label for="category">Gênero</label>
+                    <input type="text" name="category" formControlName="category"/>
                 </div>
-            
-                <div class="radio-wrapper">
-                    <input type="radio" name="order" value="alphabetical" formControlName="order"/>
-                    <label for="alphabetical">Ordem alfabética</label>
-                </div>
-        
-                <div class="radio-wrapper">
-                    <input type="radio" name="order" value="relevance" formControlName="order"/>
-                    <label for="relevance">Relevância</label>
+
+                <div class="text-input-wrapper">
+                    <label for="developer">Desenvolvedora</label>
+                    <input type="text" name="developer" formControlName="developer"/>
                 </div>
             </div>
-        </div>
-        <div class="btn-wrapper">
-            <button class="btn btn-primary" (click)="onSubmit()">Filtrar</button>
-            <button class="btn btn-secondary" (click)="onClean()">Limpar</button>
+            <div class="btn-wrapper">
+                <button class="btn btn-primary" (click)="onSubmit()">Filtrar</button>
+                <button class="btn btn-secondary" (click)="onClean()">Limpar</button>
+            </div>
         </div>
     </div>
 </form>
