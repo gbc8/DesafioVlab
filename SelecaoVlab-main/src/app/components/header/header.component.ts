@@ -11,6 +11,7 @@ export class HeaderComponent {
   tabClick = new EventEmitter<string>;
 
   onTabClick(tab: string){
+    window.scrollTo(0, 0);
     this.tabClick.emit(tab);
   }
 }

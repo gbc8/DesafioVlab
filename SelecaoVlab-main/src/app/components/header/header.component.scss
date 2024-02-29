@@ -1,3 +1,11 @@
+:host{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
 .project-name {
     background-color: var(--vlab-primary-color);
     color: var(--vlab-text-color);
